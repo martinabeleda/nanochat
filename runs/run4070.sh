@@ -54,7 +54,7 @@ python -m scripts.base_train \
     --model-tag=d12
 
 # Evaluate base model
-python -m scripts.base_eval --device-batch-size=4
+python -m scripts.base_eval --device-batch-size=4 --model-tag=d12
 
 # -----------------------------------------------------------------------------
 # SFT
@@ -68,9 +68,10 @@ python -m scripts.chat_sft \
     --total-batch-size=65536 \
     --eval-every=200 \
     --eval-tokens=524288 \
+    --model-tag=d12 \
     --run=$WANDB_RUN
 
-python -m scripts.chat_eval -i sft
+python -m scripts.chat_eval -i sft --model-tag=d12
 
 # -----------------------------------------------------------------------------
 # Generate report
